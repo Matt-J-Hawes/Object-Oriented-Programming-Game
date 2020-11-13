@@ -75,14 +75,15 @@
                 
                 if(this.missed === 5){
                    
-                	h1.innerHTML = "Sorry, you lost! Better luck next time."
+                	h1.innerHTML = `Sorry, you lost! Better luck next time.`
                 	button.innerHTML = "Try again"
                 	mainScreen.style.backgroundColor = "#cc3300"
                 	button.addEventListener("click", function (){window.location.reload()})
 
 
                 } else if(this.missed < 5){
-                	h1.innerHTML = `Congratulations... You won!`
+                	h1.innerHTML = `Congratulations... You won! The quote was
+                	<br>"${game.activePhrase.phrase.toUpperCase()}"`
                 	button.innerHTML = "Play again"
                 	mainScreen.style.backgroundColor = "#99cc33"
                 	button.addEventListener("click", function (){window.location.reload()})

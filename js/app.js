@@ -25,4 +25,4 @@ button.addEventListener('click', function(){
 	game.handleInteraction(button)
 })}
 
-
+console.log(game.activePhrase)
