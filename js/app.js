@@ -12,7 +12,17 @@ button.addEventListener('click', function(){
 	game = new Game()
 	game.startGame()
 
+
+    
 })
 
-	
+
+const buttonKey = document.getElementsByClassName("key")
+
+for(let button of buttonKey){
+button.addEventListener('click', function(){
+    
+	game.handleInteraction(button)
+})}
+
 

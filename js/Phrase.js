@@ -5,66 +5,56 @@
 
  class Phrase{
 
- 	constructor(phrase){
- 		this.phrase = phrase.toLowerCase()
- 	}
+	 	constructor(phrase){
+	 		this.phrase = phrase.toLowerCase()
+	 	}
 
-	addPhraseToDisplay(){
-		const ul = document.querySelector("ul")
-		const splitLetter = this.phrase.split('')
+		addPhraseToDisplay(){
+			const ul = document.querySelector("ul")
+			const splitLetter = this.phrase.split('')
 
-		for(let char of splitLetter){
-		if(char !== ' '){
+			for(let char of splitLetter){
+			if(char !== ' '){
 
-			let letterLi = document.createElement('li')
-			letterLi.innerHTML = char
-			letterLi.className = "letter"
-			ul.appendChild(letterLi)
-			} 
+				let letterLi = document.createElement('li')
+				letterLi.innerHTML = char
+				letterLi.classList.add("letter")
+				letterLi.classList.add("hide")
+				ul.appendChild(letterLi)
+				} 
 
-		else {
+			else {
 
-			let spaceLi = document.createElement('li')
-			spaceLi.innerHTML = char
-			spaceLi.className = "space"
-			ul.appendChild(spaceLi)
+				let spaceLi = document.createElement('li')
+				spaceLi.innerHTML = char
+				spaceLi.className = "space"
+				ul.appendChild(spaceLi)
+
+				}
+			}
+
+				return splitLetter
+		}
+
+		checkLetter(letter){
+	        
+		        return this.phrase.includes(letter)
+
+			
+		}
+
+		showMatchedLetter(letter){
+
+
+				const li = document.querySelectorAll('li.hide.letter')
+				li.forEach(phrase => {
+
+				if(letter === phrase.textContent.toLowerCase()){
+				phrase.classList.replace("hide", "show")
 
 			}
-		}
-		return splitLetter
+		})
 	}
-
-	checkLetter(letter){
-        
-        return this.phrase.includes(letter)
-
-		
-	}
-
-	showMatchedLetter(letter){
+}
          
-         const matchedLetter = this.checkLetter(letter)
-         const li = document.getElementsByClassName('letter')
-         for(let x = 0; x < li.length; x++){
-         if(matchedLetter){
-  
-         		li[x].className = "show"}
-         	}
-
-         }
-         
-        
-    }
-          
-       
-	
-
-
-
-
-    
-
-
-
-
 
