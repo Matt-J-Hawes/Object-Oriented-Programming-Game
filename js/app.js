@@ -19,14 +19,9 @@ const buttonKey = document.getElementsByClassName("key")
 
 button.addEventListener('click', function(){
 
-	game = new Game()
-	game.startGame()
-
-
-    
-})
-
-
+		game = new Game()
+		game.startGame()    
+	})
 
 /*********************************************************************
 * When key board 'key' is clicked, the handleInteraction function 
@@ -34,9 +29,6 @@ button.addEventListener('click', function(){
 *********************************************************************/
 
 for(let button of buttonKey){
-		button.addEventListener('click', function(){
-		    
-			game.handleInteraction(button)
-		}
+		button.addEventListener('click', function(){	    
+		game.handleInteraction(button) }		
 	)}
-
