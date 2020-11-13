@@ -28,11 +28,15 @@ body {
   flex-direction: column;
   display: flex;
   height: 100vh;
+  background: url("cam.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 li, ol, ul {
   padding: 0;
   display: inline-block;
+
 }
 
 h2 {
@@ -44,6 +48,17 @@ h2 {
 
 h1 {
   font-size: 30px;
+}
+
+h3 {
+  font-size: 25px;
+  letter-spacing: 4px
+}
+
+p.end-quote {
+  color: #9370DB;
+  font-weight: 1000
+  letter-spacing: 4px;
 }
 
 button {
@@ -86,7 +101,7 @@ button {
 /* Title */
 
 .header {
-  color: #3a3f58;
+  color: white;
 }
 
 
@@ -99,7 +114,7 @@ button {
   padding: 20px 1px 0 1px;
   margin-right: 2px;
   color: transparent;
-  background: var(--color-neutral-light);
+  background: white;
   border-radius: 5px;
 }
 
@@ -111,7 +126,7 @@ button {
 
 .show {
   color: #fff;
-  background-color: #4ac0d5;
+  background-color: #9370DB;
   font-size: 20px;
   height: 65px;
   width: 65px;
@@ -131,14 +146,14 @@ button {
 }
 
 .chosen {
-  background: #3a3f58;
+  background: #9370DB;
   border-radius: 5px;
   font-size: var(--font-size-medium);
   color: #FFFFFF;
 }
 
 .wrong {
-  background: #f7a964;
+  background:   #7F0000;
   color: #FFFFFF;
 }
 
@@ -173,6 +188,9 @@ button {
   left: 0;
   right: 0;
   border-radius: 5px;
+  background: url("cam.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .title {
@@ -202,3 +220,9 @@ button {
 .lose a {
   color: var(--color-lose);
 }
+
+
+#heart{color:   #e31b23}
+
+
+

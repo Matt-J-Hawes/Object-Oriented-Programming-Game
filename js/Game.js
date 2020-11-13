@@ -1,5 +1,6 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
+ * Matt Hawes
  * Game.js */
 
 
@@ -10,6 +11,11 @@
  	   	   this.phrases = this.createPhrases()
  	   	   this.activePhrase= ''
  	   }
+
+		/*********************************************************************
+		* Creates phrases for use in game
+		* @return {array} An array of phrases that could be used in the game
+		*********************************************************************/
 
  	   createPhrases(){
             const phrase = [
@@ -25,6 +31,11 @@
 
  	   }
 
+ 	   /***********************************************************************
+		* Selects random phrase from phrases property
+		* @return {Object} Phrase object chosen to be used
+		***********************************************************************/
+
  	   getRandomPhrase(){
 
  	   	let randomPhrase = Math.floor(Math.random() * this.phrases.length)
@@ -34,6 +45,11 @@
 
  	   }
 
+
+ 	    /**********************************************************************
+		* Begins game by selecting a random phrase and displaying it to user
+		***********************************************************************/
+
  	   startGame(){
         const overLay = document.getElementById('overlay')
         overLay.style.display = "none"
@@ -41,6 +57,11 @@
         this.activePhrase.addPhraseToDisplay()
 
  	   }
+
+		/**********************************************************************
+		* Checks for winning move
+		* @return {boolean} True if game has been won, false if game wasn't won
+		***********************************************************************/
 
 		checkForWin(){
 
@@ -54,6 +75,12 @@
 
 		}
 
+		/***********************************************************************
+		* Increases the value of the missed property
+		* Removes a life from the scoreboard
+		* Checks if player has remaining lives and ends game if player is out
+		************************************************************************/
+
 	    removeLife(){
 	    	
 	    	
@@ -64,8 +91,14 @@
 	    			li[5 - this.missed].src = "images/lostHeart.png"}
 	    			else if(this.missed === 5){
 	    				this.gameOver()
-	    			}
-	    		}
+			}
+		}
+
+		/***********************************************************************
+		* Displays game over message
+		* @param {boolean} gameWon - Whether or not the user won the game
+		***********************************************************************/
+
          gameOver(){
 
          	    const mainScreen = document.getElementById('overlay')
@@ -83,13 +116,19 @@
 
                 } else if(this.missed < 5){
                 	h1.innerHTML = `Congratulations... You won! The quote was
-                	<br>"${game.activePhrase.phrase.toUpperCase()}"`
+                	<br><p class= "end-quote">"${game.activePhrase.phrase.toUpperCase()}"</p>`
                 	button.innerHTML = "Play again"
                 	mainScreen.style.backgroundColor = "#99cc33"
                 	button.addEventListener("click", function (){window.location.reload()})
                 }
 
          }
+
+
+		/***********************************************************************
+		* Handles onscreen keyboard button clicks
+		* @param (HTMLButtonElement) button - The clicked button element
+		************************************************************************/
 
          handleInteraction(buttonKey){
        
@@ -104,4 +143,4 @@
                            game.removeLife()}
 
 	    	}
-         	}
+     	}
