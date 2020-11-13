@@ -80,6 +80,11 @@ button {
 	margin: 0 auto;
 }
 
+#btn__reset:hover {
+  transform: scale(1.1);
+}
+
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -143,6 +148,10 @@ button {
 .keyrow {
   display: flex;
   justify-content: center;
+}
+
+.key:hover {
+  transform: scale(1.1);
 }
 
 .chosen {
