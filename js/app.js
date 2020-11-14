@@ -15,6 +15,8 @@ const nameInput = document.getElementById("player-name")
 const warning = document.querySelector(".player-name")
 const warningDiv = document.querySelector(".player-info")
 warning.style.display = "none"
+nameInput.value = ''
+nameInput.focus()
 
 /*********************************************************************
 * Event Listener to start a new game 
