@@ -32,3 +32,4 @@ for(let button of buttonKey){
 		button.addEventListener('click', function(){	    
 		game.handleInteraction(button) }		
 	)}
+

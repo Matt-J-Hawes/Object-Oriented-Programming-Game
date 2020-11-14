@@ -90,13 +90,13 @@
             	h1.innerHTML = `Sorry, you lost! Better luck next time.`
             	button.innerHTML = "Try again"
             	mainScreen.style.backgroundColor = "#cc3300"
-            	button.addEventListener("click", function (){window.location.reload()})}
+                game.resetGame()}            	
             else if(this.missed < 5){
             	h1.innerHTML = `Congratulations... You won! The quote was
             	<br><p class= "end-quote">"${game.activePhrase.phrase.toUpperCase()}"</p>`
             	button.innerHTML = "Play again"
             	mainScreen.style.backgroundColor = "#99cc33"
-            	button.addEventListener("click", function (){window.location.reload()})
+            	game.resetGame()
             }
 	     }
 
@@ -106,6 +106,8 @@
 		************************************************************************/
 
          handleInteraction(buttonKey){
+         	if(buttonKey){
+         		buttonKey.disabled = true  	
 			if(game.activePhrase.checkLetter(buttonKey.innerHTML)){
 				buttonKey.className = "chosen";
 				game.activePhrase.showMatchedLetter(buttonKey.innerHTML)
@@ -113,5 +115,30 @@
 				game.gameOver()}}
 		    else{buttonKey.className = "wrong";
 				game.removeLife()}
-		    }
-		 }
+		    }}
+
+        /***********************************************************************
+		* Handles the reset of the game when the player wins / loses
+		* Resets board back to its original state
+		************************************************************************/
+          
+          resetGame(){
+          	button.addEventListener("click", function(){
+			let li = document.querySelectorAll('#scoreboard img')
+			for(let i = 0; i < li.length; i++){
+				li[i].src = "images/liveHeart.png"}
+            const wrongButton = document.querySelectorAll('.wrong')
+            for(let i = 0; i < wrongButton.length; i++){
+                  wrongButton[i].className = "key"
+                  wrongButton[i].disabled = false}
+            const chosenButton = document.querySelectorAll('.chosen')
+            for(let i = 0; i < chosenButton.length; i++){
+            	  chosenButton[i].className = "key"
+            	  chosenButton[i].disabled = false}          
+            const ul = document.querySelector("ul")
+            const list = ul.querySelectorAll("li")
+            for(let x = 0; x < list.length; x++){
+		          list[x].style.display = "none"}
+		          game.activePhrase.addPhraseToDisplay() })          								
+			}
+		}
