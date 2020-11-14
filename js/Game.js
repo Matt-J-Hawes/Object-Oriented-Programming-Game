@@ -7,7 +7,7 @@
  	   constructor(){
  	   	   this.missed = 0;
  	   	   this.phrases = this.createPhrases()
- 	   	   this.activePhrase= ''
+ 	   	   this.activePhrase = null
  	   }
 
 		/*********************************************************************
@@ -89,14 +89,14 @@
             if(this.missed === 5){                 
             	h1.innerHTML = `Sorry ${nameInput.value}, you lost! Better luck next time.`
             	button.innerHTML = "Try again"
-            	mainScreen.style.backgroundColor = "#cc3300"
+            	mainScreen.className = 'loss'
             	warningDiv.style.display = "none"
                 game.resetGame()}            	
             else if(this.missed < 5){
             	h1.innerHTML = `Congratulations ${nameInput.value}, You won! The quote was
             	<br><p class= "end-quote">"${game.activePhrase.phrase.toUpperCase()}"</p>`
-            	button.innerHTML = "Play again"
-            	mainScreen.style.backgroundColor = "#99cc33"
+            	button.innerHTML = "Play again"          	
+            	mainScreen.className = 'win'
             	warningDiv.style.display = "none"
             	game.resetGame()
             }
@@ -140,7 +140,7 @@
             const ul = document.querySelector("ul")
             const list = ul.querySelectorAll("li")
             for(let x = 0; x < list.length; x++){
-		          list[x].style.display = "none"}
+		          ul.removeChild(list[x])}
 		          game.activePhrase.addPhraseToDisplay() })          								
 			}
 		}
