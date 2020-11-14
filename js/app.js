@@ -22,22 +22,19 @@ nameInput.focus()
 * Event Listener to start a new game 
 *********************************************************************/
 
-button.addEventListener('click', function(){
-        
-        if(nameInput.value){
-        game = new Game()
+	button.addEventListener('click', function(){
+
+		if(nameInput.value){
+		game = new Game()
 		game.startGame()  
-        } else{warning.style.display = "block"}
-	  
-	})
+		} else {warning.style.display = "block"} })
 
 /*********************************************************************
 * When key board 'key' is clicked, the handleInteraction function 
 * runs from Game.js
 *********************************************************************/
 
-for(let button of buttonKey){
+		for(let button of buttonKey){
 		button.addEventListener('click', function(){	    
-		game.handleInteraction(button) }		
-	)}
-
+		game.handleInteraction(button) }	)}	
+		
