@@ -11,16 +11,22 @@
 let game = ''
 const button = document.getElementById('btn__reset')
 const buttonKey = document.getElementsByClassName("key")
-
+const nameInput = document.getElementById("player-name")
+const warning = document.querySelector(".player-name")
+const warningDiv = document.querySelector(".player-info")
+warning.style.display = "none"
 
 /*********************************************************************
 * Event Listener to start a new game 
 *********************************************************************/
 
 button.addEventListener('click', function(){
-
-		game = new Game()
-		game.startGame()    
+        
+        if(nameInput.value){
+        game = new Game()
+		game.startGame()  
+        } else{warning.style.display = "block"}
+	  
 	})
 
 /*********************************************************************

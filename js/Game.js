@@ -87,15 +87,17 @@
             mainScreen.style.display = "inherit"
             const h1 = document.getElementById('game-over-message')                             
             if(this.missed === 5){                 
-            	h1.innerHTML = `Sorry, you lost! Better luck next time.`
+            	h1.innerHTML = `Sorry ${nameInput.value}, you lost! Better luck next time.`
             	button.innerHTML = "Try again"
             	mainScreen.style.backgroundColor = "#cc3300"
+            	warningDiv.style.display = "none"
                 game.resetGame()}            	
             else if(this.missed < 5){
-            	h1.innerHTML = `Congratulations... You won! The quote was
+            	h1.innerHTML = `Congratulations ${nameInput.value}, You won! The quote was
             	<br><p class= "end-quote">"${game.activePhrase.phrase.toUpperCase()}"</p>`
             	button.innerHTML = "Play again"
             	mainScreen.style.backgroundColor = "#99cc33"
+            	warningDiv.style.display = "none"
             	game.resetGame()
             }
 	     }
