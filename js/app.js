@@ -11,6 +11,7 @@
 let game = ''
 const button = document.getElementById('btn__reset')
 const buttonKey = document.getElementsByClassName("key")
+const mainScreen = document.getElementById('overlay')
 const nameInput = document.getElementById("player-name")
 const warning = document.querySelector(".player-name")
 const warningDiv = document.querySelector(".player-info")
@@ -38,3 +39,14 @@ nameInput.focus()
 		button.addEventListener('click', function(){	    
 		game.handleInteraction(button) }	)}	
 		
+   
+
+/*********************************************************************
+* If the game is not in the main screen - it will listen to keyboard 
+* clicks - runs from Game.js
+*********************************************************************/
+
+        document.addEventListener('keydown', function(key){
+        	if(mainScreen.style.display === "none"){
+        	game.handleKeyboardInteraction(key)}
+        })

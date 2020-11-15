@@ -119,6 +119,26 @@
 				game.removeLife()}
 		    }}
 
+	    /***********************************************************************
+		* Handles keyboard clicks
+		* @param (key) - The clicked key
+		************************************************************************/
+
+		handleKeyboardInteraction(key){
+			let chosenKey = key.key
+			if(chosenKey){
+				for(let button of buttonKey){
+			if(chosenKey === button.innerHTML){
+				button.disabled = true
+			if(game.activePhrase.checkLetter(chosenKey)){
+				button.className = "chosen"
+				game.activePhrase.showMatchedLetter(chosenKey)
+			if(game.checkForWin()){
+				game.gameOver() }}
+			else {button.className = "wrong";
+				game.removeLife()
+				game.checkForWin()} }}}}
+		
         /***********************************************************************
 		* Handles the reset of the game when the player wins / loses
 		* Resets board back to its original state
