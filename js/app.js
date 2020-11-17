@@ -40,13 +40,17 @@ nameInput.focus()
 		game.handleInteraction(button) }	)}	
 		
    
-
 /*********************************************************************
 * If the game is not in the main screen - it will listen to keyboard 
 * clicks - runs from Game.js
 *********************************************************************/
 
-        document.addEventListener('keydown', function(key){
-        	if(mainScreen.style.display === "none"){
-        	game.handleKeyboardInteraction(key)}
-        })
+       document.addEventListener('keydown', (event) => {
+  if (mainScreen.style.display === 'none') {
+      for (let i = 0;i < buttonKey.length; i++) {
+          if (event.key === buttonKey[i].innerHTML ) {
+              game.handleInteraction(buttonKey[i])
+          }
+      }
+  }
+})
